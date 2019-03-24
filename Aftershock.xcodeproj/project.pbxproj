@@ -15,6 +15,7 @@
 		6F0074EB2247EA2E00A12459 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0074E92247EA2E00A12459 /* LaunchScreen.storyboard */; };
 		6F0074F62247EA2F00A12459 /* AftershockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074F52247EA2F00A12459 /* AftershockTests.swift */; };
 		6F0075012247EA2F00A12459 /* AftershockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0075002247EA2F00A12459 /* AftershockUITests.swift */; };
+		6F0075102247EEA200A12459 /* FTNAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00750F2247EEA200A12459 /* FTNAddress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6F0074FC2247EA2F00A12459 /* AftershockUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AftershockUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0075002247EA2F00A12459 /* AftershockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AftershockUITests.swift; sourceTree = "<group>"; };
 		6F0075022247EA2F00A12459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6F00750F2247EEA200A12459 /* FTNAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTNAddress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		6F0074DC2247EA2000A12459 /* Aftershock */ = {
 			isa = PBXGroup;
 			children = (
+				6F00750E2247EE2E00A12459 /* Models */,
 				6F0074DD2247EA2000A12459 /* AppDelegate.swift */,
 				6F0074DF2247EA2000A12459 /* ViewController.swift */,
 				6F0074E12247EA2000A12459 /* Main.storyboard */,
@@ -126,6 +129,14 @@
 				6F0075022247EA2F00A12459 /* Info.plist */,
 			);
 			path = AftershockUITests;
+			sourceTree = "<group>";
+		};
+		6F00750E2247EE2E00A12459 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6F00750F2247EEA200A12459 /* FTNAddress.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F0074E02247EA2000A12459 /* ViewController.swift in Sources */,
+				6F0075102247EEA200A12459 /* FTNAddress.swift in Sources */,
 				6F0074E62247EA2000A12459 /* Aftershock.xcdatamodeld in Sources */,
 				6F0074DE2247EA2000A12459 /* AppDelegate.swift in Sources */,
 			);
