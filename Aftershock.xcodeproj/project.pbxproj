@@ -16,6 +16,7 @@
 		6F0074F62247EA2F00A12459 /* AftershockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074F52247EA2F00A12459 /* AftershockTests.swift */; };
 		6F0075012247EA2F00A12459 /* AftershockUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0075002247EA2F00A12459 /* AftershockUITests.swift */; };
 		6F0075102247EEA200A12459 /* FTNAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00750F2247EEA200A12459 /* FTNAddress.swift */; };
+		6F00751222493D8400A12459 /* FTNAddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00751122493D8400A12459 /* FTNAddressTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6F0075002247EA2F00A12459 /* AftershockUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AftershockUITests.swift; sourceTree = "<group>"; };
 		6F0075022247EA2F00A12459 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F00750F2247EEA200A12459 /* FTNAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTNAddress.swift; sourceTree = "<group>"; };
+		6F00751122493D8400A12459 /* FTNAddressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTNAddressTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				6F0074F52247EA2F00A12459 /* AftershockTests.swift */,
+				6F00751122493D8400A12459 /* FTNAddressTest.swift */,
 				6F0074F72247EA2F00A12459 /* Info.plist */,
 			);
 			path = AftershockTests;
@@ -282,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F0074F62247EA2F00A12459 /* AftershockTests.swift in Sources */,
+				6F00751222493D8400A12459 /* FTNAddressTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
