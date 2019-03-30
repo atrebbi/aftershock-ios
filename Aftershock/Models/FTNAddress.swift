@@ -59,11 +59,11 @@ public class FTNAddress {
         // zone and network divided by colon symbol //
         let zoneAndNet = parts[0].components(separatedBy: ":")
 
-        if (zoneAndNet.count > 2) {
+        if zoneAndNet.count > 2 {
             throw FTNAddressError.extraColonCharacter
         }
 
-        if (zoneAndNet.count == 2) {
+        if zoneAndNet.count == 2 {
             // Both zone and net are present //
             if let parsedZone = Int(zoneAndNet[0]) {
                 zone = parsedZone
