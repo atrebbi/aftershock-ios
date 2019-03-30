@@ -42,11 +42,6 @@ public class FTNAddress {
 
     /// Init object from textual representation of FTN address
     init(address: String) throws {
-        zone = FTNAddress.defaultZone
-        net = 0
-        node = 0
-        point = 0
-        domain = FTNAddress.defaultDomain
 
         // FTN address has two required fields: network //
         // and node. They are separated by slash symbol //
@@ -101,6 +96,8 @@ public class FTNAddress {
         if addrAndDomain.count == 2 {
             // Domain is specified in the address //
             domain = addrAndDomain[1]
+        } else {
+            domain = FTNAddress.defaultDomain
         }
 
         // Finally, get node and optional point fields //
