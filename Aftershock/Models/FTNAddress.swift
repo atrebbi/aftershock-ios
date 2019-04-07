@@ -24,6 +24,12 @@ public class FTNAddress {
         case extraDotCharacter
         case invalidPointValue
         case invalidNodeValue
+        case zoneOutOfRange
+        case netOutOfRange
+        case nodeOutOfRange
+        case pointOutOfRange
+        case domainTooLong
+        case domainWithInvalidCharacters
     }
 
     var zone: Int
@@ -121,6 +127,35 @@ public class FTNAddress {
             node = parsedNode
         } else {
             throw FTNAddressError.invalidNodeValue
+        }
+
+        // Unfortunately, observers cannot throw errors. //
+        // So, do some validation after address parsing. //
+        if zone < 1 || zone > 32767 {
+            throw FTNAddressError.zoneOutOfRange
+        }
+
+        if net < 1 || net > 32767 {
+            throw FTNAddressError.netOutOfRange
+        }
+
+        if node < -1 || node > 32767 {
+            throw FTNAddressError.nodeOutOfRange
+        }
+
+        if point < 0 || point > 32767 {
+            throw FTNAddressError.pointOutOfRange
+        }
+
+        if domain.count > 8 {
+            throw FTNAddressError.domainTooLong
+        }
+
+        for char in domain.utf8 {
+            // non-control ASCII excluding dot //
+            if (char <= 32 || char >= 127 || char == 46) {
+                throw FTNAddressError.domainWithInvalidCharacters
+            }
         }
     }
 }
