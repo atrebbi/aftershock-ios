@@ -15,7 +15,7 @@ public class FTNAddress {
     public static let defaultDomain = "fidonet";
 
     enum FTNAddressError: Error {
-        case missingNetworkField
+        case missingNodeField
         case extraSlashCharacter
         case extraColonCharacter
         case invalidZoneValue
@@ -49,12 +49,14 @@ public class FTNAddress {
     /// Init object from textual representation of FTN address
     init(address: String) throws {
 
+        let trimmedAddress = address.trimmingCharacters(in: .whitespaces)
+
         // FTN address has two required fields: network //
         // and node. They are separated by slash symbol //
-        let parts = address.components(separatedBy: "/");
+        let parts = trimmedAddress.components(separatedBy: "/")
 
-        if parts.count < 1 {
-            throw FTNAddressError.missingNetworkField
+        if parts.count < 2 {
+            throw FTNAddressError.missingNodeField
         }
 
         if parts.count > 2 {

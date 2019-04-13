@@ -1,1 +1,1 @@
-# Pathetic attempt to implement FidoNet client for iOS
+# A pathetic attempt to implement FidoNet client for iOS
