@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F0074DE2247EA2000A12459 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074DD2247EA2000A12459 /* AppDelegate.swift */; };
-		6F0074E02247EA2000A12459 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074DF2247EA2000A12459 /* ViewController.swift */; };
+		6F0074E02247EA2000A12459 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074DF2247EA2000A12459 /* MainViewController.swift */; };
 		6F0074E32247EA2000A12459 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F0074E12247EA2000A12459 /* Main.storyboard */; };
 		6F0074E62247EA2000A12459 /* Aftershock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6F0074E42247EA2000A12459 /* Aftershock.xcdatamodeld */; };
 		6F0074E82247EA2E00A12459 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F0074E72247EA2E00A12459 /* Assets.xcassets */; };
@@ -19,6 +19,10 @@
 		6F00751222493D8400A12459 /* FTNAddressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00751122493D8400A12459 /* FTNAddressTest.swift */; };
 		6F00751422619DBD00A12459 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6F00751322619DBD00A12459 /* Settings.bundle */; };
 		6F00751822619EF600A12459 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00751722619EF600A12459 /* SettingsBundleHelper.swift */; };
+		6F52E521226C0609000C47F0 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52E520226C0609000C47F0 /* Queue.swift */; };
+		6F52E523226C0AA2000C47F0 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52E522226C0AA2000C47F0 /* Logger.swift */; };
+		6F52E526226C0B70000C47F0 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52E525226C0B70000C47F0 /* LogMessage.swift */; };
+		6FE4E792226B352300C9A5E0 /* ConsoleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4E791226B352300C9A5E0 /* ConsoleLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +45,7 @@
 /* Begin PBXFileReference section */
 		6F0074DA2247EA2000A12459 /* Aftershock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aftershock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0074DD2247EA2000A12459 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6F0074DF2247EA2000A12459 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6F0074DF2247EA2000A12459 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6F0074E22247EA2000A12459 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F0074E52247EA2000A12459 /* Aftershock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Aftershock.xcdatamodel; sourceTree = "<group>"; };
 		6F0074E72247EA2E00A12459 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +61,10 @@
 		6F00751122493D8400A12459 /* FTNAddressTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTNAddressTest.swift; sourceTree = "<group>"; };
 		6F00751322619DBD00A12459 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		6F00751722619EF600A12459 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
+		6F52E520226C0609000C47F0 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		6F52E522226C0AA2000C47F0 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		6F52E525226C0B70000C47F0 /* LogMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
+		6FE4E791226B352300C9A5E0 /* ConsoleLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +115,10 @@
 		6F0074DC2247EA2000A12459 /* Aftershock */ = {
 			isa = PBXGroup;
 			children = (
+				6F709D56226C0522002BCE8D /* Utils */,
 				6F00751522619ECC00A12459 /* UI */,
 				6F00750E2247EE2E00A12459 /* Models */,
 				6F0074DD2247EA2000A12459 /* AppDelegate.swift */,
-				6F0074DF2247EA2000A12459 /* ViewController.swift */,
 				6F0074E12247EA2000A12459 /* Main.storyboard */,
 				6F0074E72247EA2E00A12459 /* Assets.xcassets */,
 				6F0074E92247EA2E00A12459 /* LaunchScreen.storyboard */,
@@ -151,6 +159,7 @@
 		6F00751522619ECC00A12459 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6FE4E790226B339B00C9A5E0 /* MainScreen */,
 				6F00751622619ED900A12459 /* Settings */,
 			);
 			path = UI;
@@ -162,6 +171,33 @@
 				6F00751722619EF600A12459 /* SettingsBundleHelper.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		6F52E524226C0B44000C47F0 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				6F52E522226C0AA2000C47F0 /* Logger.swift */,
+				6F52E525226C0B70000C47F0 /* LogMessage.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		6F709D56226C0522002BCE8D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6F52E524226C0B44000C47F0 /* Logging */,
+				6F52E520226C0609000C47F0 /* Queue.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		6FE4E790226B339B00C9A5E0 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				6F0074DF2247EA2000A12459 /* MainViewController.swift */,
+				6FE4E791226B352300C9A5E0 /* ConsoleLine.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F0074E02247EA2000A12459 /* ViewController.swift in Sources */,
+				6F0074E02247EA2000A12459 /* MainViewController.swift in Sources */,
+				6F52E521226C0609000C47F0 /* Queue.swift in Sources */,
 				6F0075102247EEA200A12459 /* FTNAddress.swift in Sources */,
+				6F52E526226C0B70000C47F0 /* LogMessage.swift in Sources */,
 				6F0074E62247EA2000A12459 /* Aftershock.xcdatamodeld in Sources */,
 				6F00751822619EF600A12459 /* SettingsBundleHelper.swift in Sources */,
 				6F0074DE2247EA2000A12459 /* AppDelegate.swift in Sources */,
+				6FE4E792226B352300C9A5E0 /* ConsoleLine.swift in Sources */,
+				6F52E523226C0AA2000C47F0 /* Logger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
