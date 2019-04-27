@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let dictionary = Bundle.main.infoDictionary!
         let version = dictionary["CFBundleShortVersionString"] as! String
-        Logger.instance.log(message: "AfterShock v\(version)")
+        Logger.instance.log(message: "AfterShock/iOS \(version)")
         return true
     }
 
@@ -42,6 +42,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // temporary unconditional redirecting to application settings //
 //        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+
+        // Do application settings validation //
+        if !validateSettings() {
+            Logger.instance.log(message: NSLocalizedString(
+                "Please open settings application and enter correct values", comment: ""))
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -95,5 +101,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    private func validateSettings() -> Bool {
+        var settingsAreCorrect = false
+        do {
+            try SettingsHelper.validateSettings()
+            settingsAreCorrect = true
+        } catch {
+            Logger.instance.log(message:
+                SettingsHelper.getErrorMessage(error:
+                    error as! SettingsHelper.SettingsError))
+        }
+        return settingsAreCorrect
+    }
 }
 

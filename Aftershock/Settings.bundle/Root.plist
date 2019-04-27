@@ -42,7 +42,7 @@
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>Key</key>
-			<string>systemName</string>
+			<string>stationName</string>
 			<key>KeyboardType</key>
 			<string>Alphabet</string>
 			<key>AutocapitalizationType</key>
@@ -106,7 +106,7 @@
 			<key>Title</key>
 			<string>Primary uplink Inet address</string>
 			<key>Key</key>
-			<string>uplinkInetAddrs</string>
+			<string>uplinkInetAddr</string>
 			<key>AutocorrectionType</key>
 			<string>No</string>
 			<key>KeyboardType</key>
@@ -123,6 +123,8 @@
 			<string>No</string>
 			<key>KeyboardType</key>
 			<string>NumberPad</string>
+			<key>DefaultValue</key>
+			<string>24554</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -160,7 +162,7 @@
 			<key>Title</key>
 			<string>Custom tearline</string>
 			<key>Key</key>
-			<string>tearLine</string>
+			<string>tearline</string>
 			<key>AutocorrectionType</key>
 			<string>Default</string>
 			<key>KeyboardType</key>
@@ -190,26 +192,26 @@
 				<string>CP866</string>
 			</array>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSMultiValueSpecifier</string>
-            <key>Title</key>
-            <string>Replace russian N with H</string>
-            <key>Key</key>
-            <string>replaceN</string>
-            <key>DefaultValue</key>
-            <string>yes</string>
-            <key>Titles</key>
-            <array>
-                <string>No</string>
-                <string>Yes</string>
-            </array>
-            <key>Values</key>
-            <array>
-                <string>no</string>
-                <string>yes</string>
-            </array>
-        </dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Replace russian N with H</string>
+			<key>Key</key>
+			<string>replaceN</string>
+			<key>DefaultValue</key>
+			<string>yes</string>
+			<key>Titles</key>
+			<array>
+				<string>No</string>
+				<string>Yes</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>no</string>
+				<string>yes</string>
+			</array>
+		</dict>
 		<dict>
 			<key>Type</key>
 			<string>PSTextFieldSpecifier</string>
@@ -266,7 +268,7 @@
 			<key>Key</key>
 			<string>msgFontSize</string>
 			<key>DefaultValue</key>
-			<string>14</string>
+			<string>12</string>
 			<key>Titles</key>
 			<array>
 				<string>8</string>
@@ -284,11 +286,11 @@
 			<array>
 				<string>8</string>
 				<string>10</string>
-				<string>20</string>
 				<string>12</string>
 				<string>14</string>
 				<string>16</string>
 				<string>18</string>
+				<string>20</string>
 				<string>24</string>
 				<string>26</string>
 				<string>30</string>

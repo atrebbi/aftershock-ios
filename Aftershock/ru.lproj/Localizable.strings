@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  Aftershock
+
+  Created by Anatoly Vdovichev on 21/04/2019.
+  Copyright © 2019 ASVCorp. All rights reserved.
+*/
+"Sysop name is not specified" = "Не установлено имя пользователя";
+"Sysop name is too long" = "Имя пользователя не должно быть длиннее 36 символов";
+"Station name is not specified" = "Не установлено название станции";
+"Station name is too long" = "Название станции не должно быть больше 64 символов";
+"Primary location of the station if not specified" = "Не установлено основное место расположения станции";
+"Primary station location is longer than 72 symbols" = "Основное место расположения станции не должно быть длиннее 72 символов";
+"FTN-addresses of the station are not specified" = "Не установлены FTN-адреса станции";
+"Malformed FTN-addresses of the station" = "Cписок FTN-адресов станции введён с ошибкой";
+"Nodelist attributes contain disallowed characters" = "Атрибуты нодлиста содержат недопустимые символы";
+"FTN-addresses of uplink node is not specified" = "Не установлен FTN-адрес аплинка";
+"Malformed FTN-addresses of uplink node" = "FTN-адрес аплинка введён с ошибкой";
+"Uplink Inet address not set" = "Не установлен Internet адрес аплинка";
+"Uplink inet address is incorrect" = "Установлен некорректный Internet адрес аплинка";
+"Uplink TCP port is not set" = "Не установлен TCP-порт аплинка";
+"Incorrect uplink TCP port is specified" = "Установлен некорректный TCP-порт аплинка";
+"Origin is too long" = "Установлен слишком длинный ориджин";
+"Origin text must be not longer than 56 symbols" = "Ориджин должен быть не длиннее 56 символов";
+"Tearline must be not longer than 64 symbols" = "Тирлайн должен быть не длиннее 64 символов";
+"Incorrect value of default maximum messages number" = "Некорректное значение максимального количества сообщений для новых эхоконференций";
+"Please open settings application and enter correct values" = "Пожалуйста, установите корректные значения в приложении настроек";
