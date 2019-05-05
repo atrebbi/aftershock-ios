@@ -5,7 +5,7 @@
   Created by Anatoly Vdovichev on 21/04/2019.
   Copyright © 2019 ASVCorp. All rights reserved.
 */
-"Sysop name is not specified" = "Sysop name is not specified";
+"User name is not specified" = "User name is not specified";
 "Sysop name is too long" = "Sysop name is too long";
 "Station name is not specified" = "Station name is not specified";
 "Station name is too long" = "Station name is too long";
@@ -24,4 +24,3 @@
 "Tearline must be not longer than 64 symbols" = "Tearline must be not longer than 64 symbols";
 "Incorrect value of default maximum messages number" = "Incorrect value of maximum messages number for new areas";
 "Please open settings application and enter correct values" = "Please open settings application and enter correct values";
-

@@ -16,7 +16,7 @@ class SettingsHelper {
     public static let MAX_ORIGIN_LENGTH = 56
     public static let MAX_TEARLINE_LENGTH = 64
 
-    public static let DEFAULT_BINKP_PORT = "24554"
+    public static let DEFAULT_BINKP_PORT = 24554
     public static let DEFAULT_CODEPAGE = "auto"
     public static let DEFAULT_REPLACE_N = "yes"
     public static let DEFAULT_FONT_SIZE = 12
@@ -66,164 +66,57 @@ class SettingsHelper {
         static let maxMsgNumber = "maxMessagesNumber"
     }
 
-    public static func getSysopName() -> String? {
+    public static func retrieveSettings() throws {
+
+        let settings: InstanceSettings = InstanceSettings()
+
         if let result = UserDefaults.standard.string(forKey: Keys.sysopName) {
-             return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil
-        }
-    }
-
-    public static func getSystemName() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.stationName) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil
-        }
-    }
-
-    public static func getLocation() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.location) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil
-        }
-    }
-
-    public static func getFTNAddresses() -> [Substring]? {
-        if let result = UserDefaults.standard.string(forKey: Keys.ftnAddrs) {
-            return result.split(separator: " ", maxSplits: Int.max,
-                                omittingEmptySubsequences: true)
-        } else {
-            return nil;
-        }
-    }
-
-    public static func getNodelistAttributes() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.ndlAttrs) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil;
-        }
-    }
-
-    public static func getUplinkFTNAddress() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.uplinkFtn) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil;
-        }
-    }
-
-    public static func getUplinkInetAddress() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.uplinkInet) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return nil;
-        }
-    }
-
-    public static func getUplinkInetPort() -> String? {
-        if let result = UserDefaults.standard.string(forKey: Keys.uplinkPort) {
-            return result.trimmingCharacters(in: .whitespaces)
-        } else {
-            return DEFAULT_BINKP_PORT;
-        }
-    }
-
-    public static func getUplinkPassword() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.uplinkPassword)
-    }
-
-    public static func getOrigin() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.origin)
-    }
-
-    public static func getTearline() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.tearline)
-    }
-
-    public static func getCodepage() -> String {
-        return UserDefaults.standard
-            .string(forKey: Keys.codepage) ?? DEFAULT_CODEPAGE;
-    }
-
-    public static func replaceRussianN() -> Bool {
-        let result = UserDefaults.standard
-            .string(forKey: Keys.replaceRussianN) ?? DEFAULT_REPLACE_N
-        return result == "yes"
-    }
-
-    public static func getNewMessageHeader() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.newMessageHeader)
-    }
-
-    public static func getReplyHeader() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.replyHeader)
-    }
-
-    public static func getSignature() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.signature)
-    }
-
-    public static func getFontSize() -> Int {
-        if let fontSize = UserDefaults.standard.string(forKey: Keys.fontSize) {
-            return Int(fontSize)!
-        } else {
-            return DEFAULT_FONT_SIZE
-        }
-    }
-
-    public static func getDefaultMaxMessagesNumber() -> Int {
-        if let v = UserDefaults.standard.string(forKey: Keys.maxMsgNumber) {
-            return Int(v) ?? DEFAULT_MAX_MESSAGES
-        } else {
-            return DEFAULT_MAX_MESSAGES
-        }
-    }
-
-    public static func validateSettings() throws {
-
-        if let sysopName = SettingsHelper.getSysopName() {
-            if sysopName.isEmpty {
+            settings.sysopName = result.trimmingCharacters(in: .whitespaces)
+            if settings.sysopName.isEmpty {
                 throw SettingsError.noSysopName
             }
-            if sysopName.count > 36 {
+            if settings.sysopName.utf8.count > MAX_NAME_LENGTH {
                 throw SettingsError.sysopNameTooLong
             }
         } else {
             throw SettingsError.noSysopName
         }
 
-        if let systemName = SettingsHelper.getSystemName() {
-            if systemName.isEmpty {
+        if let result = UserDefaults.standard.string(forKey: Keys.stationName) {
+            settings.stationName = result.trimmingCharacters(in: .whitespaces)
+            if settings.stationName.isEmpty {
                 throw SettingsError.noStationName
             }
-            if systemName.count > MAX_STATION_LENGTH {
+            if settings.stationName.utf8.count > MAX_STATION_LENGTH {
                 throw SettingsError.stationNameTooLong
             }
         } else {
             throw SettingsError.noStationName
         }
 
-        if let location = SettingsHelper.getLocation() {
-            if (location.isEmpty) {
+        if let result = UserDefaults.standard.string(forKey: Keys.location) {
+            settings.location = result.trimmingCharacters(in: .whitespaces)
+            if (settings.location.isEmpty) {
                 throw SettingsError.noLocation
             }
-            if location.count > MAX_LOCATION_LENGTH {
+            if settings.location.utf8.count > MAX_LOCATION_LENGTH {
                 throw SettingsError.locationTooLong
             }
         } else {
             throw SettingsError.noLocation
         }
 
-        if let systemAddresses = SettingsHelper.getFTNAddresses() {
-            if systemAddresses.count == 0 {
+        if let result = UserDefaults.standard.string(forKey: Keys.ftnAddrs) {
+            let txtAddresses = result.split(separator: " ", maxSplits: Int.max,
+                                omittingEmptySubsequences: true)
+            if txtAddresses.count == 0 {
                 throw SettingsError.noSystemAddress
             }
-            for address in systemAddresses {
+            settings.ftnAddresses.reserveCapacity(txtAddresses.count)
+            for txtAddress in txtAddresses {
                 do {
-                    try _ = FTNAddress(address: String(address))
+                    let address = try FTNAddress(address: String(txtAddress))
+                    settings.ftnAddresses.append(address)
                 } catch {
                     throw SettingsError.badSystemAddress
                 }
@@ -232,21 +125,26 @@ class SettingsHelper {
             throw SettingsError.noSystemAddress
         }
 
-        if let nodelistAttributes = SettingsHelper.getNodelistAttributes() {
-            for char in nodelistAttributes.utf8 {
+        if let result = UserDefaults.standard.string(forKey: Keys.ndlAttrs) {
+            settings.nodelistAttributes =
+                result.trimmingCharacters(in: .whitespaces)
+            for char in settings.nodelistAttributes.utf8 {
                 // non-control ASCII excluding dot //
                 if (char <= 32 || char >= 127 || char == 46) {
                     throw SettingsError.badNodelistAttributes
                 }
             }
+        } else {
+            settings.nodelistAttributes = "";
         }
 
-        if let uplinkFtnAddress = SettingsHelper.getUplinkFTNAddress() {
-            if uplinkFtnAddress.isEmpty {
+        if let result = UserDefaults.standard.string(forKey: Keys.uplinkFtn) {
+            let txtAddress = result.trimmingCharacters(in: .whitespaces)
+            if txtAddress.isEmpty {
                 throw SettingsError.noUplinkFtnAddr
             }
             do {
-                try _ = FTNAddress(address: String(uplinkFtnAddress))
+                settings.uplinkFtnAddress = try FTNAddress(address: txtAddress)
             } catch {
                 throw SettingsError.badUplinkFtnAddr
             }
@@ -254,11 +152,13 @@ class SettingsHelper {
             throw SettingsError.noUplinkFtnAddr
         }
 
-        if let uplinkInetAddress = SettingsHelper.getUplinkInetAddress() {
-            if uplinkInetAddress.isEmpty {
+        if let result = UserDefaults.standard.string(forKey: Keys.uplinkInet) {
+            settings.uplinkInetAddress =
+                result.trimmingCharacters(in: .whitespaces)
+            if settings.uplinkInetAddress.isEmpty {
                 throw SettingsError.noUplinkInetAddr
             }
-            for char in uplinkInetAddress.utf8 {
+            for char in settings.uplinkInetAddress.utf8 {
                 // simple check for space symbols only //
                 if (char == 32) {
                     throw SettingsError.badUplinkInetAddr
@@ -268,31 +168,59 @@ class SettingsHelper {
             throw SettingsError.noUplinkInetAddr
         }
 
-        if let uplinkInetPort = SettingsHelper.getUplinkInetPort() {
-            if uplinkInetPort.isEmpty {
-                throw SettingsError.noUplinkInetPort
-            }
-            if let port = Int(uplinkInetPort) {
-                if port < 0 || port > 65535 {
+        if let result = UserDefaults.standard.string(forKey: Keys.uplinkPort) {
+            let txtPort = result.trimmingCharacters(in: .whitespaces)
+            if txtPort.isEmpty {
+                settings.uplinkInetPort = DEFAULT_BINKP_PORT
+            } else {
+                if let port = Int(txtPort) {
+                    if port < 0 || port > 65535 {
+                        throw SettingsError.badUplinkInetPort
+                    }
+                    settings.uplinkInetPort = port
+                } else {
                     throw SettingsError.badUplinkInetPort
                 }
-            } else {
-                throw SettingsError.badUplinkInetPort
             }
         } else {
-            throw SettingsError.noUplinkInetPort
+            settings.uplinkInetPort = DEFAULT_BINKP_PORT
         }
 
-        if let origin = SettingsHelper.getOrigin() {
-            if origin.count > MAX_ORIGIN_LENGTH {
-                throw SettingsError.originTooLong
-            }
+        settings.uplinkPassword =
+            UserDefaults.standard.string(forKey: Keys.uplinkPassword) ?? ""
+
+        settings.origin =
+            UserDefaults.standard.string(forKey: Keys.origin) ?? ""
+        if settings.origin.count > MAX_ORIGIN_LENGTH {
+            throw SettingsError.originTooLong
         }
 
-        if let tearline = SettingsHelper.getTearline() {
-            if tearline.count > MAX_TEARLINE_LENGTH {
-                throw SettingsError.tearlineTooLong
-            }
+        settings.tearline =
+            UserDefaults.standard.string(forKey: Keys.tearline) ?? ""
+        if settings.tearline.count > MAX_TEARLINE_LENGTH {
+            throw SettingsError.tearlineTooLong
+        }
+
+        settings.codepage = UserDefaults.standard
+            .string(forKey: Keys.codepage) ?? DEFAULT_CODEPAGE;
+
+        let result = UserDefaults.standard
+            .string(forKey: Keys.replaceRussianN) ?? DEFAULT_REPLACE_N
+        settings.replaceRussianN = result == "yes"
+
+        settings.newMessageHeader =  UserDefaults.standard
+            .string(forKey: Keys.newMessageHeader) ?? ""
+
+        settings.replyHeader = UserDefaults.standard
+            .string(forKey: Keys.replyHeader) ?? ""
+
+        settings.signature = UserDefaults.standard
+            .string(forKey: Keys.signature) ?? ""
+
+        if let fontSize = UserDefaults.standard.string(forKey: Keys.fontSize) {
+            settings.fontSize = Int(fontSize) ?? DEFAULT_FONT_SIZE
+        } else {
+            settings.fontSize = DEFAULT_FONT_SIZE
         }
 
         if let v = UserDefaults.standard.string(forKey: Keys.maxMsgNumber) {
@@ -300,10 +228,15 @@ class SettingsHelper {
                 if maxMsgNumber < 0 {
                     throw SettingsError.badMaxMsgNumber
                 }
+                settings.maxMsgNumber = maxMsgNumber
             } else {
                 throw SettingsError.badMaxMsgNumber
             }
+        } else {
+            settings.maxMsgNumber = DEFAULT_MAX_MESSAGES
         }
+
+        GlobalSettings.instance.settings = settings
     }
 
     public static func getErrorMessage(error: SettingsError) -> String {

@@ -38,7 +38,7 @@ public class FTNAddress {
     var point: Int
     var domain: String
 
-    init() {
+    public init() {
         zone = FTNAddress.defaultZone
         net = 0
         node = 0
@@ -46,8 +46,17 @@ public class FTNAddress {
         domain = FTNAddress.defaultDomain
     }
 
+    /// Init object from another instance of FTNAddress
+    public init (_ otherAddress: FTNAddress) {
+        self.zone = otherAddress.zone
+        self.net = otherAddress.net
+        self.node = otherAddress.node
+        self.point = otherAddress.point
+        self.domain = otherAddress.domain
+    }
+
     /// Init object from textual representation of FTN address
-    init(address: String) throws {
+    public init(address: String) throws {
 
         let trimmedAddress = address.trimmingCharacters(in: .whitespaces)
 

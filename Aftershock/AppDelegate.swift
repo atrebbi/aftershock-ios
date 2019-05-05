@@ -43,11 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // temporary unconditional redirecting to application settings //
 //        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
 
-        // Do application settings validation //
-        if !validateSettings() {
-            Logger.instance.log(message: NSLocalizedString(
-                "Please open settings application and enter correct values", comment: ""))
-        }
+        // Reload application settings //
+        retrieveSettings()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -101,17 +98,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-    private func validateSettings() -> Bool {
-        var settingsAreCorrect = false
+    private func retrieveSettings() {
         do {
-            try SettingsHelper.validateSettings()
-            settingsAreCorrect = true
+            try SettingsHelper.retrieveSettings()
         } catch {
             Logger.instance.log(message:
                 SettingsHelper.getErrorMessage(error:
                     error as! SettingsHelper.SettingsError))
+            Logger.instance.log(message: NSLocalizedString(
+                "Please open settings application and enter correct values",
+                comment: ""))
+
         }
-        return settingsAreCorrect
     }
 }
 
