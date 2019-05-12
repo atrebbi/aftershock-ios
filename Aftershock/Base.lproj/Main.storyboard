@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController title="Main Screen" id="BYZ-38-t0r" customClass="MainViewController" customModule="Aftershock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v5L-cW-c9Q">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConsoleLine" id="JdZ-T2-dzO" customClass="ConsoleLine" customModule="Aftershock" customModuleProvider="target">
@@ -29,22 +29,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-pH-3Gm">
-                                                    <rect key="frame" x="12" y="0.0" width="296" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KG-pH-3Gm">
+                                                    <rect key="frame" x="68" y="0.0" width="244" height="44"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eo6-u3-MuL">
+                                                    <rect key="frame" x="8" y="0.0" width="52" height="20"/>
+                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="7KG-pH-3Gm" secondAttribute="bottom" id="8P3-HK-syg"/>
                                                 <constraint firstItem="7KG-pH-3Gm" firstAttribute="top" secondItem="HXn-ME-cAb" secondAttribute="top" id="8rk-JA-p7E"/>
-                                                <constraint firstAttribute="trailing" secondItem="7KG-pH-3Gm" secondAttribute="trailing" constant="12" id="BVc-7L-Z0P"/>
-                                                <constraint firstItem="7KG-pH-3Gm" firstAttribute="leading" secondItem="HXn-ME-cAb" secondAttribute="leading" constant="12" id="xW3-Fy-647"/>
+                                                <constraint firstItem="Eo6-u3-MuL" firstAttribute="top" secondItem="HXn-ME-cAb" secondAttribute="top" id="XXl-gK-kZq"/>
+                                                <constraint firstItem="7KG-pH-3Gm" firstAttribute="height" secondItem="HXn-ME-cAb" secondAttribute="height" id="aHP-3h-k8V"/>
+                                                <constraint firstItem="7KG-pH-3Gm" firstAttribute="leading" secondItem="Eo6-u3-MuL" secondAttribute="trailing" constant="8" id="mQr-qD-TyW"/>
+                                                <constraint firstItem="Eo6-u3-MuL" firstAttribute="leading" secondItem="HXn-ME-cAb" secondAttribute="leading" constant="8" id="z4k-9x-LIN"/>
+                                                <constraint firstAttribute="trailing" secondItem="7KG-pH-3Gm" secondAttribute="trailing" constant="8" id="zhh-hh-laB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lineText" destination="7KG-pH-3Gm" id="1c9-rY-GPx"/>
+                                            <outlet property="lineTime" destination="Eo6-u3-MuL" id="GcB-SM-l5R"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -69,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="25.637181409295355"/>
+            <point key="canvasLocation" x="33.75" y="23.239436619718312"/>
         </scene>
     </scenes>
 </document>

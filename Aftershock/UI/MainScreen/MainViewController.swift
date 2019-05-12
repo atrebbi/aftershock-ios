@@ -12,10 +12,12 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var console: UITableView!
 
-    let logger: Logger = Logger.instance
+    let logger = Logger.instance
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateFormatter.dateFormat = "HH:mm"
         console.dataSource = self
         console.delegate = self
 
@@ -59,9 +61,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             withIdentifier: "ConsoleLine") as! ConsoleLine
 
         if let message = logger.getMessage(index: indexPath.row) {
-            cell.setText(text: message.text)
+            cell.setText(date: dateFormatter.string(from: message.date),
+                         message: message.text)
         } else {
-            cell.setText(text: "")
+            cell.setText(date: "", message: "")
         }
         return cell;
     }

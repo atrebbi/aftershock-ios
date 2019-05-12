@@ -12,8 +12,10 @@ import UIKit
 class ConsoleLine: UITableViewCell {
 
     @IBOutlet weak var lineText: UILabel!
+    @IBOutlet weak var lineTime: UILabel!
 
-    func setText(text: String) {
-        lineText.text = text
+    func setText(date: String, message: String) {
+        lineText.text = message
+        lineTime.text = date
     }
 }

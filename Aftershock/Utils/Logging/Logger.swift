@@ -36,7 +36,7 @@ public class Logger {
     public func log(message: String) {
         accessQueue.async {
             // put message to storage //
-            self.data.enqueue(LogMessage(timestamp: NSDate().timeIntervalSince1970,
+            self.data.enqueue(LogMessage(date: Date(),
                                     message: message))
 
             // drop old messages keeping amount of data within defined capacity

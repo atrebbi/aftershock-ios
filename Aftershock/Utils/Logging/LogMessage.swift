@@ -10,11 +10,11 @@ import Foundation
 
 public class LogMessage {
 
-    public let timestamp: TimeInterval
+    public let date: Date
     public let text: String
 
-    init(timestamp: TimeInterval, message: String) {
-        self.timestamp = timestamp
+    init(date: Date, message: String) {
+        self.date = date
         self.text = message
     }
 }
