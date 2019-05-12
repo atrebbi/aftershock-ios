@@ -11,7 +11,6 @@ import Foundation
 /// A singleton class for logging purposes
 public class Logger {
 
-    public static let NOTIFICATION_KEY = "log"
     private static let CAPACITY = 100
 
     /// Log data storage
@@ -45,9 +44,8 @@ public class Logger {
             }
 
             // send notification that log has been changed //
-            let notification = Notification(
-                name: Notification.Name(Logger.NOTIFICATION_KEY))
-            NotificationCenter.default.post(notification)
+            NotificationHelper
+                .sendNotification(keyword: NotificationHelper.Keyword.log)
         }
     }
 

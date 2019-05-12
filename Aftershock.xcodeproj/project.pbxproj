@@ -24,6 +24,7 @@
 		6F52E526226C0B70000C47F0 /* LogMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52E525226C0B70000C47F0 /* LogMessage.swift */; };
 		6F52E529226CB32F000C47F0 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F52E528226CB32F000C47F0 /* SettingsHelper.swift */; };
 		6F52E52E226CBB99000C47F0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F52E52C226CBB98000C47F0 /* Localizable.strings */; };
+		6F9F14B422888C33000FAFC5 /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F9F14B322888C33000FAFC5 /* NotificationHelper.swift */; };
 		6FE4E792226B352300C9A5E0 /* ConsoleLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4E791226B352300C9A5E0 /* ConsoleLine.swift */; };
 		6FFBA3BB226E068B00CB7CDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FFBA3B9226E068B00CB7CDD /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		6F52E525226C0B70000C47F0 /* LogMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMessage.swift; sourceTree = "<group>"; };
 		6F52E528226CB32F000C47F0 /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		6F52E52D226CBB98000C47F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6F9F14B322888C33000FAFC5 /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		6FE4E791226B352300C9A5E0 /* ConsoleLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLine.swift; sourceTree = "<group>"; };
 		6FFBA3BA226E068B00CB7CDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Aftershock/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6FFBA3BC226E06F600CB7CDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Aftershock/en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				6F52E527226CB307000C47F0 /* Settings */,
 				6F52E524226C0B44000C47F0 /* Logging */,
 				6F52E520226C0609000C47F0 /* Queue.swift */,
+				6F9F14B322888C33000FAFC5 /* NotificationHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				6F52E526226C0B70000C47F0 /* LogMessage.swift in Sources */,
 				6F0074E62247EA2000A12459 /* Aftershock.xcdatamodeld in Sources */,
 				6F52E529226CB32F000C47F0 /* SettingsHelper.swift in Sources */,
+				6F9F14B422888C33000FAFC5 /* NotificationHelper.swift in Sources */,
 				6F06C16522774899007B443D /* InstanceSettings.swift in Sources */,
 				6F0074DE2247EA2000A12459 /* AppDelegate.swift in Sources */,
 				6FE4E792226B352300C9A5E0 /* ConsoleLine.swift in Sources */,

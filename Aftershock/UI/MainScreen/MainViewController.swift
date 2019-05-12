@@ -11,13 +11,14 @@ import UIKit
 class MainViewController: UIViewController {
 
     @IBOutlet weak var console: UITableView!
+    @IBOutlet weak var pollButton: UIButton!
 
     let logger = Logger.instance
     let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.dateFormat = "HH:mm:ss"
         console.dataSource = self
         console.delegate = self
 
@@ -25,11 +26,19 @@ class MainViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+
+        pollButton.isEnabled = GlobalSettings.instance.settings != nil;
+
         // Subscribe to log notifications for updating console content //
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(self.logChanged),
-            name: Notification.Name(Logger.NOTIFICATION_KEY),
+            name: Notification.Name(NotificationHelper.Keyword.log.rawValue),
+            object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.onSettingsUpdate),
+            name: Notification.Name(NotificationHelper.Keyword.settings.rawValue),
             object: nil)
     }
 
@@ -43,6 +52,15 @@ class MainViewController: UIViewController {
         DispatchQueue.main.async {
             self.console.reloadData()
         }
+    }
+
+    @objc func onSettingsUpdate() {
+        // update can be done with valid settings only //
+        pollButton.isEnabled = true;
+    }
+
+    @IBAction func onPollClicked(_ sender: Any) {
+        Logger.instance.log(message: "Polling is not implemented yet");
     }
 }
 
